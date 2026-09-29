@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "offlineforge"
+version = "0.1.0"
+description = "世界顶级离线强化学习（Offline RL + OPE）系统 — 作者 晨星"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "晨星" }]
+dependencies = [
+    "numpy>=2.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.6"]
+d3rlpy = ["d3rlpy>=1.0"]  # 可选: 启用 use_d3rlpy 后端 (需 torch)
+
+[project.scripts]
+offlineforge = "offlineforge.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["offlineforge*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+filterwarnings = [
+    "ignore::FutureWarning",
+    "ignore::UserWarning",
+]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+ignore = ["E731"]

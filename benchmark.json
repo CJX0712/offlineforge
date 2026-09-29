@@ -1,0 +1,1645 @@
+{
+  "system": "OfflineForge",
+  "version": "0.1.0",
+  "author": "晨星",
+  "config": {
+    "random_state": 42,
+    "benchmark_seeds": [
+      42,
+      123,
+      7
+    ],
+    "grid_size": 5,
+    "gamma": 0.95,
+    "slip_prob": 0.1,
+    "step_cost": -0.04,
+    "goal_reward": 1.0,
+    "max_steps": 50,
+    "n_episodes": 400,
+    "behavior_epsilon": 0.3,
+    "behavior_policy": "epsilon_greedy",
+    "cql_alpha": 1.0,
+    "fqe_iterations": 300,
+    "fqe_tol": 1e-06,
+    "bc_learning_rate": 0.5,
+    "bc_epochs": 60,
+    "ood_floor": -50.0,
+    "ope_methods": [
+      "dm",
+      "sis",
+      "wis",
+      "tis",
+      "dr",
+      "fqe"
+    ],
+    "use_d3rlpy": true
+  },
+  "generated_at_note": "确定性可复现基准 (固定 random_state + 种子组)",
+  "elapsed_s": 21.223,
+  "n_evaluations": 90,
+  "summary": {
+    "best_algorithm": "optimal",
+    "ranking": [
+      {
+        "algorithm": "optimal",
+        "mean_best_ope_error": 0.002648290086852375,
+        "max_best_ope_error": 0.008869092378651411,
+        "n": 18
+      },
+      {
+        "algorithm": "bc",
+        "mean_best_ope_error": 0.0032705237642545394,
+        "max_best_ope_error": 0.006831995862495083,
+        "n": 18
+      },
+      {
+        "algorithm": "random",
+        "mean_best_ope_error": 0.006757247238086239,
+        "max_best_ope_error": 0.0221868963024201,
+        "n": 18
+      },
+      {
+        "algorithm": "cql",
+        "mean_best_ope_error": 0.008772383650109968,
+        "max_best_ope_error": 0.02390762541252167,
+        "n": 18
+      },
+      {
+        "algorithm": "fqe",
+        "mean_best_ope_error": 0.008905854010071683,
+        "max_best_ope_error": 0.051576041515645266,
+        "n": 18
+      }
+    ],
+    "ope_ranking": [
+      {
+        "method": "dr",
+        "mean_abs_error": 0.010508683349107999,
+        "max_abs_error": 0.1307796154659488,
+        "n": 90
+      },
+      {
+        "method": "fqe",
+        "mean_abs_error": 0.06264353178311799,
+        "max_abs_error": 0.6368556411930821,
+        "n": 90
+      },
+      {
+        "method": "wis",
+        "mean_abs_error": 0.20057715132565515,
+        "max_abs_error": 0.9716996842433783,
+        "n": 90
+      },
+      {
+        "method": "dm",
+        "mean_abs_error": 0.28038419503566975,
+        "max_abs_error": 0.8562066894234154,
+        "n": 90
+      },
+      {
+        "method": "tis",
+        "mean_abs_error": 0.3006850234103508,
+        "max_abs_error": 2.2549336099754944,
+        "n": 90
+      },
+      {
+        "method": "sis",
+        "mean_abs_error": 0.31417566241900774,
+        "max_abs_error": 2.4555115753774857,
+        "n": 90
+      }
+    ]
+  },
+  "rows": [
+    {
+      "algorithm": "optimal",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 42,
+      "best_ope": "dr",
+      "best_ope_error": 0.001069254781672746,
+      "true_value": 0.4094122230366963,
+      "estimates": {
+        "dm": 0.2440379048082706,
+        "sis": 0.34909618963578937,
+        "wis": 0.40434732332615325,
+        "tis": 0.37094023530593473,
+        "dr": 0.410481477818369,
+        "fqe": 0.41340767110790955
+      }
+    },
+    {
+      "algorithm": "random",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 42,
+      "best_ope": "dr",
+      "best_ope_error": 0.0022319312563477967,
+      "true_value": -0.6407551586439687,
+      "estimates": {
+        "dm": 0.2154515307794467,
+        "sis": -0.3992196842071585,
+        "wis": -0.06405106646909185,
+        "tis": -0.0029741827225368855,
+        "dr": -0.6385232273876209,
+        "fqe": -0.5826547553795334
+      }
+    },
+    {
+      "algorithm": "bc",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 42,
+      "best_ope": "dr",
+      "best_ope_error": 0.0042887321606480955,
+      "true_value": 0.23089103220560808,
+      "estimates": {
+        "dm": 0.23550937333005795,
+        "sis": 0.2588146486513538,
+        "wis": 0.22420439520856977,
+        "tis": 0.24169422610033348,
+        "dr": 0.23517976436625618,
+        "fqe": 0.235436580808366
+      }
+    },
+    {
+      "algorithm": "cql",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 42,
+      "best_ope": "dr",
+      "best_ope_error": 0.0028630408244547656,
+      "true_value": 0.40259570982435233,
+      "estimates": {
+        "dm": 0.24403790480827067,
+        "sis": -0.12325063714347566,
+        "wis": 0.37266445432676965,
+        "tis": 1.2862397943477566e-09,
+        "dr": 0.4054587506488071,
+        "fqe": 0.4107120517916262
+      }
+    },
+    {
+      "algorithm": "fqe",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 42,
+      "best_ope": "dr",
+      "best_ope_error": 0.0016278137881599042,
+      "true_value": 0.4041594193432469,
+      "estimates": {
+        "dm": 0.24403790480827067,
+        "sis": -0.2345427662170479,
+        "wis": 0.40083608950637584,
+        "tis": 1.1573700824535666e-09,
+        "dr": 0.402531605555087,
+        "fqe": 0.421986844230852
+      }
+    },
+    {
+      "algorithm": "optimal",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 123,
+      "best_ope": "fqe",
+      "best_ope_error": 0.00015240276523631469,
+      "true_value": 0.4094122230366963,
+      "estimates": {
+        "dm": 0.2440379048082706,
+        "sis": 0.44308843086618205,
+        "wis": 0.41091338119802806,
+        "tis": 0.437705584319685,
+        "dr": 0.40990226348850817,
+        "fqe": 0.4095646258019326
+      }
+    },
+    {
+      "algorithm": "random",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 123,
+      "best_ope": "dr",
+      "best_ope_error": 0.008494615955054075,
+      "true_value": -0.6407551586439687,
+      "estimates": {
+        "dm": 0.2154515307794467,
+        "sis": -0.2973946566484333,
+        "wis": 0.062267599945554836,
+        "tis": 0.0026343390667483827,
+        "dr": -0.6492497745990228,
+        "fqe": -0.5894626680736932
+      }
+    },
+    {
+      "algorithm": "bc",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 123,
+      "best_ope": "tis",
+      "best_ope_error": 0.00036507442993113925,
+      "true_value": 0.23234939666175178,
+      "estimates": {
+        "dm": 0.23558718839828982,
+        "sis": 0.2569404005635787,
+        "wis": 0.21155791750098446,
+        "tis": 0.23198432223182064,
+        "dr": 0.2309424879890025,
+        "fqe": 0.23120025158188143
+      }
+    },
+    {
+      "algorithm": "cql",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 123,
+      "best_ope": "dr",
+      "best_ope_error": 0.0075299173194222635,
+      "true_value": 0.4030267174654124,
+      "estimates": {
+        "dm": 0.24403790480827067,
+        "sis": -0.18785679373643982,
+        "wis": 0.3344489375037452,
+        "tis": 4.4259386607705634e-10,
+        "dr": 0.4105566347848347,
+        "fqe": 0.42182422696104466
+      }
+    },
+    {
+      "algorithm": "fqe",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 123,
+      "best_ope": "dr",
+      "best_ope_error": 0.0012861053839569592,
+      "true_value": 0.40320770185326543,
+      "estimates": {
+        "dm": 0.24403790480827067,
+        "sis": -0.04111111091101363,
+        "wis": 0.4570071327171522,
+        "tis": 3.632469311047567e-10,
+        "dr": 0.4044938072372224,
+        "fqe": 0.4237777782228479
+      }
+    },
+    {
+      "algorithm": "optimal",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 7,
+      "best_ope": "fqe",
+      "best_ope_error": 0.0010905858572493599,
+      "true_value": 0.4094122230366963,
+      "estimates": {
+        "dm": 0.2440379048082706,
+        "sis": 0.4965207728021705,
+        "wis": 0.41510242651879997,
+        "tis": 0.47059862331178803,
+        "dr": 0.4129139459210919,
+        "fqe": 0.41050280889394564
+      }
+    },
+    {
+      "algorithm": "random",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 7,
+      "best_ope": "dr",
+      "best_ope_error": 0.008365232430442182,
+      "true_value": -0.6407551586439687,
+      "estimates": {
+        "dm": 0.2154515307794467,
+        "sis": -0.2703633395876279,
+        "wis": 0.11975516288163064,
+        "tis": 0.002085812319626871,
+        "dr": -0.6323899262135265,
+        "fqe": -0.5601730781530404
+      }
+    },
+    {
+      "algorithm": "bc",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 7,
+      "best_ope": "dm",
+      "best_ope_error": 0.0013764642235251923,
+      "true_value": 0.23362290511071127,
+      "estimates": {
+        "dm": 0.23499936933423646,
+        "sis": 0.2636754830833758,
+        "wis": 0.22884096917536562,
+        "tis": 0.2453435785006777,
+        "dr": 0.23844413364931621,
+        "fqe": 0.23838328152098023
+      }
+    },
+    {
+      "algorithm": "cql",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 7,
+      "best_ope": "fqe",
+      "best_ope_error": 0.002126064861213195,
+      "true_value": 0.40283495530755686,
+      "estimates": {
+        "dm": 0.24403790480827067,
+        "sis": 0.6348629051815475,
+        "wis": 0.3941567763241799,
+        "tis": 0.4926959708397898,
+        "dr": 0.4076502803475111,
+        "fqe": 0.40496102016877006
+      }
+    },
+    {
+      "algorithm": "fqe",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 7,
+      "best_ope": "wis",
+      "best_ope_error": 0.0032441894918862624,
+      "true_value": 0.40294086844170535,
+      "estimates": {
+        "dm": 0.24403790480827067,
+        "sis": -0.06000000027623524,
+        "wis": 0.3996966789498191,
+        "tis": 7.476642302560367e-28,
+        "dr": 0.40700349998127283,
+        "fqe": 0.4314269914844946
+      }
+    },
+    {
+      "algorithm": "optimal",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 42,
+      "best_ope": "wis",
+      "best_ope_error": 0.001182217787461859,
+      "true_value": 0.4094122230366963,
+      "estimates": {
+        "dm": 0.2440379048082706,
+        "sis": 0.2837939896305458,
+        "wis": 0.41059444082415814,
+        "tis": 0.33168455456366575,
+        "dr": 0.40629067808852026,
+        "fqe": 0.41153575104429374
+      }
+    },
+    {
+      "algorithm": "random",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 42,
+      "best_ope": "dr",
+      "best_ope_error": 0.0038967772924374255,
+      "true_value": -0.6407551586439687,
+      "estimates": {
+        "dm": 0.2154515307794467,
+        "sis": -0.2615928370227147,
+        "wis": -0.1499925105924318,
+        "tis": -0.006042607876300652,
+        "dr": -0.6368583813515313,
+        "fqe": -0.5430414276541858
+      }
+    },
+    {
+      "algorithm": "bc",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 42,
+      "best_ope": "fqe",
+      "best_ope_error": 0.0028770466480093904,
+      "true_value": 0.23105145450109713,
+      "estimates": {
+        "dm": 0.2356868292492883,
+        "sis": 0.3253178757289654,
+        "wis": 0.20809092866747542,
+        "tis": 0.2624063268570095,
+        "dr": 0.2353826460085239,
+        "fqe": 0.23392850114910652
+      }
+    },
+    {
+      "algorithm": "cql",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 42,
+      "best_ope": "wis",
+      "best_ope_error": 0.006399889463107544,
+      "true_value": 0.4005566662822291,
+      "estimates": {
+        "dm": 0.24403790480827067,
+        "sis": -0.09840860118645084,
+        "wis": 0.39415677681912153,
+        "tis": 8.084930075858783e-10,
+        "dr": 0.4085297954676522,
+        "fqe": 0.42464669838256414
+      }
+    },
+    {
+      "algorithm": "fqe",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 42,
+      "best_ope": "dr",
+      "best_ope_error": 0.012153212771395971,
+      "true_value": 0.4065313482698666,
+      "estimates": {
+        "dm": 0.24403790480827067,
+        "sis": -0.1489477113739616,
+        "wis": 0.4570071328940245,
+        "tis": 1.8045170071552442e-09,
+        "dr": 0.41868456104126256,
+        "fqe": 0.4336597472662131
+      }
+    },
+    {
+      "algorithm": "optimal",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 123,
+      "best_ope": "fqe",
+      "best_ope_error": 0.0008873001182940765,
+      "true_value": 0.4094122230366963,
+      "estimates": {
+        "dm": 0.2440379048082706,
+        "sis": 0.5019023619401386,
+        "wis": 0.3948266029859033,
+        "tis": 0.47033968846731644,
+        "dr": 0.40049788403958697,
+        "fqe": 0.4085249229184022
+      }
+    },
+    {
+      "algorithm": "random",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 123,
+      "best_ope": "dr",
+      "best_ope_error": 0.0221868963024201,
+      "true_value": -0.6407551586439687,
+      "estimates": {
+        "dm": 0.2154515307794467,
+        "sis": -0.3221067841441451,
+        "wis": 0.03811491236960256,
+        "tis": 0.0013312977566376763,
+        "dr": -0.6629420549463888,
+        "fqe": -0.5852509098652898
+      }
+    },
+    {
+      "algorithm": "bc",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 123,
+      "best_ope": "dm",
+      "best_ope_error": 0.005272582453104108,
+      "true_value": 0.24047469892519277,
+      "estimates": {
+        "dm": 0.23520211647208866,
+        "sis": 0.30723589273400415,
+        "wis": 0.224695907312154,
+        "tis": 0.26429337273788434,
+        "dr": 0.2341989819207939,
+        "fqe": 0.23460287810447233
+      }
+    },
+    {
+      "algorithm": "cql",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 123,
+      "best_ope": "dr",
+      "best_ope_error": 0.004273198459761096,
+      "true_value": 0.39750811259862445,
+      "estimates": {
+        "dm": 0.24403790480827067,
+        "sis": -0.051555555757962744,
+        "wis": 0.4161772711792689,
+        "tis": 2.4240498837767147e-19,
+        "dr": 0.40178131105838555,
+        "fqe": 0.44642915896202323
+      }
+    },
+    {
+      "algorithm": "fqe",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 123,
+      "best_ope": "dr",
+      "best_ope_error": 0.004312335763545394,
+      "true_value": 0.3974597837121695,
+      "estimates": {
+        "dm": 0.24403790480827067,
+        "sis": -0.05155555575382225,
+        "wis": 0.4447085210482563,
+        "tis": 8.599247689366099e-19,
+        "dr": 0.4017721194757149,
+        "fqe": 0.44668805485345786
+      }
+    },
+    {
+      "algorithm": "optimal",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 7,
+      "best_ope": "fqe",
+      "best_ope_error": 0.0028713514302192156,
+      "true_value": 0.4094122230366963,
+      "estimates": {
+        "dm": 0.2440379048082706,
+        "sis": 0.5063444311050638,
+        "wis": 0.40328859958801777,
+        "tis": 0.46950535914793046,
+        "dr": 0.4032111103478052,
+        "fqe": 0.40654087160647706
+      }
+    },
+    {
+      "algorithm": "random",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 7,
+      "best_ope": "dr",
+      "best_ope_error": 0.012323666731236638,
+      "true_value": -0.6407551586439687,
+      "estimates": {
+        "dm": 0.2154515307794467,
+        "sis": -0.2844570020180329,
+        "wis": 0.1760040878513517,
+        "tis": 0.003384798811921933,
+        "dr": -0.6284314919127321,
+        "fqe": -0.5287940542190148
+      }
+    },
+    {
+      "algorithm": "bc",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 7,
+      "best_ope": "fqe",
+      "best_ope_error": 0.0018104340129939944,
+      "true_value": 0.22823226266906652,
+      "estimates": {
+        "dm": 0.23467061840334524,
+        "sis": 0.2901361853714813,
+        "wis": 0.20878849582128173,
+        "tis": 0.24770067012419247,
+        "dr": 0.23286714324165333,
+        "fqe": 0.2300426966820605
+      }
+    },
+    {
+      "algorithm": "cql",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 7,
+      "best_ope": "dr",
+      "best_ope_error": 0.0012911512027839467,
+      "true_value": 0.4026110422151214,
+      "estimates": {
+        "dm": 0.24403790480827067,
+        "sis": -0.08509348490518852,
+        "wis": 0.45700713267025966,
+        "tis": 7.030585745194863e-11,
+        "dr": 0.40131989101233745,
+        "fqe": 0.4194646977905784
+      }
+    },
+    {
+      "algorithm": "fqe",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 7,
+      "best_ope": "dr",
+      "best_ope_error": 0.004456220687174217,
+      "true_value": 0.39800483854265045,
+      "estimates": {
+        "dm": 0.2440379048082706,
+        "sis": -0.12265232910139552,
+        "wis": 0.45700713295226875,
+        "tis": 7.264938606172793e-10,
+        "dr": 0.40246105922982467,
+        "fqe": 0.4323021596645122
+      }
+    },
+    {
+      "algorithm": "optimal",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 42,
+      "best_ope": "wis",
+      "best_ope_error": 0.000934648761365009,
+      "true_value": 0.4094122230366963,
+      "estimates": {
+        "dm": 0.2440379048082706,
+        "sis": 0.25789712226439676,
+        "wis": 0.40847757427533127,
+        "tis": 0.2989146655434552,
+        "dr": 0.4041535185921589,
+        "fqe": 0.4110124061920643
+      }
+    },
+    {
+      "algorithm": "random",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 42,
+      "best_ope": "dr",
+      "best_ope_error": 0.0006918410896585847,
+      "true_value": -0.6407551586439687,
+      "estimates": {
+        "dm": 0.2154515307794467,
+        "sis": -0.1701401977265805,
+        "wis": 0.1620842929416855,
+        "tis": 0.0012242591625438227,
+        "dr": -0.6414469997336273,
+        "fqe": -0.30801969523497963
+      }
+    },
+    {
+      "algorithm": "bc",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 42,
+      "best_ope": "dr",
+      "best_ope_error": 0.005206181717459041,
+      "true_value": 0.22650109175828276,
+      "estimates": {
+        "dm": 0.23721130802526785,
+        "sis": 0.37549115155425816,
+        "wis": 0.2007063369149122,
+        "tis": 0.28569269322710417,
+        "dr": 0.22129491004082372,
+        "fqe": 0.21486168070845105
+      }
+    },
+    {
+      "algorithm": "cql",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 42,
+      "best_ope": "wis",
+      "best_ope_error": 0.02137854020685981,
+      "true_value": 0.37277823533614896,
+      "estimates": {
+        "dm": 0.24403790480827067,
+        "sis": 2.8282898107136347,
+        "wis": 0.39415677554300876,
+        "tis": 2.6277118453116435,
+        "dr": 0.3379586017474211,
+        "fqe": 0.41936532433111723
+      }
+    },
+    {
+      "algorithm": "fqe",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 42,
+      "best_ope": "fqe",
+      "best_ope_error": 0.051576041515645266,
+      "true_value": 0.37983712066210323,
+      "estimates": {
+        "dm": 0.24403790480827067,
+        "sis": 1.101069193577859,
+        "wis": 0.45700713293732453,
+        "tis": 0.9676505109979394,
+        "dr": 0.510616736128052,
+        "fqe": 0.4314131621777485
+      }
+    },
+    {
+      "algorithm": "optimal",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 123,
+      "best_ope": "fqe",
+      "best_ope_error": 0.008869092378651411,
+      "true_value": 0.4094122230366963,
+      "estimates": {
+        "dm": 0.2440379048082706,
+        "sis": 0.6485361796824288,
+        "wis": 0.3935035678339516,
+        "tis": 0.5550856682258781,
+        "dr": 0.3933150726978944,
+        "fqe": 0.40054313065804487
+      }
+    },
+    {
+      "algorithm": "random",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 123,
+      "best_ope": "dr",
+      "best_ope_error": 0.0014866760666505385,
+      "true_value": -0.6407551586439687,
+      "estimates": {
+        "dm": 0.2154515307794467,
+        "sis": -0.21921725881721335,
+        "wis": 0.1977356263681605,
+        "tis": 0.001980562691514835,
+        "dr": -0.6392684825773182,
+        "fqe": -0.3122753762217852
+      }
+    },
+    {
+      "algorithm": "bc",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 123,
+      "best_ope": "dm",
+      "best_ope_error": 0.00422564313885182,
+      "true_value": 0.23985579087982126,
+      "estimates": {
+        "dm": 0.23563014774096944,
+        "sis": 0.3978039001513008,
+        "wis": 0.21224525297628605,
+        "tis": 0.31008728654173334,
+        "dr": 0.22230729062157106,
+        "fqe": 0.21912890100355661
+      }
+    },
+    {
+      "algorithm": "cql",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 123,
+      "best_ope": "wis",
+      "best_ope_error": 0.008617505836863992,
+      "true_value": 0.40277428213707095,
+      "estimates": {
+        "dm": 0.24403790480827067,
+        "sis": -0.1694917824317683,
+        "wis": 0.39415677630020696,
+        "tis": 2.1559813359876595e-09,
+        "dr": 0.4220049362330559,
+        "fqe": 0.43417272230045406
+      }
+    },
+    {
+      "algorithm": "fqe",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 123,
+      "best_ope": "wis",
+      "best_ope_error": 0.0038135913635852225,
+      "true_value": 0.4002786721839487,
+      "estimates": {
+        "dm": 0.24403790480827067,
+        "sis": -0.08625089629009276,
+        "wis": 0.4040922635475339,
+        "tis": 2.1251392335279796e-18,
+        "dr": 0.40744185834695495,
+        "fqe": 0.4368901981280215
+      }
+    },
+    {
+      "algorithm": "optimal",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 7,
+      "best_ope": "fqe",
+      "best_ope_error": 0.0012327409400494371,
+      "true_value": 0.4094122230366963,
+      "estimates": {
+        "dm": 0.2440379048082706,
+        "sis": 0.4511504653561045,
+        "wis": 0.4141766109971781,
+        "tis": 0.44449389257049937,
+        "dr": 0.40429609115853177,
+        "fqe": 0.4106449639767457
+      }
+    },
+    {
+      "algorithm": "random",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 7,
+      "best_ope": "dr",
+      "best_ope_error": 0.008051936406181626,
+      "true_value": -0.6407551586439687,
+      "estimates": {
+        "dm": 0.2154515307794467,
+        "sis": -0.17453868731466354,
+        "wis": 0.2631494979202923,
+        "tis": 0.005715372434414719,
+        "dr": -0.6327032222377871,
+        "fqe": -0.3230303931913839
+      }
+    },
+    {
+      "algorithm": "bc",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 7,
+      "best_ope": "fqe",
+      "best_ope_error": 0.0028741461188643846,
+      "true_value": 0.21878703028382704,
+      "estimates": {
+        "dm": 0.23533139495177602,
+        "sis": 0.4409015986700792,
+        "wis": 0.15063403878462023,
+        "tis": 0.25597156610419464,
+        "dr": 0.2285681481127152,
+        "fqe": 0.21591288416496265
+      }
+    },
+    {
+      "algorithm": "cql",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 7,
+      "best_ope": "dr",
+      "best_ope_error": 0.011385730107888736,
+      "true_value": 0.3727998978594752,
+      "estimates": {
+        "dm": 0.24403790480827067,
+        "sis": -0.08682788801994032,
+        "wis": 0.43363878297267167,
+        "tis": 1.761039218793015e-27,
+        "dr": 0.38418562796736394,
+        "fqe": 0.41367881900946313
+      }
+    },
+    {
+      "algorithm": "fqe",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 7,
+      "best_ope": "dr",
+      "best_ope_error": 0.0007799457536755428,
+      "true_value": -0.19564970375617946,
+      "estimates": {
+        "dm": 0.24403790480827067,
+        "sis": -0.021333333560416737,
+        "wis": 0.4570071193136498,
+        "tis": 1.452987857554162e-28,
+        "dr": -0.19486975800250392,
+        "fqe": 0.4412059374369026
+      }
+    },
+    {
+      "algorithm": "optimal",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 42,
+      "best_ope": "tis",
+      "best_ope_error": 0.002976127583227628,
+      "true_value": 0.4094122230366963,
+      "estimates": {
+        "dm": 0.2440379048082706,
+        "sis": 0.41507749044653053,
+        "wis": 0.40131522013219023,
+        "tis": 0.4123883506199239,
+        "dr": 0.40384324323109544,
+        "fqe": 0.40518928487405254
+      }
+    },
+    {
+      "algorithm": "random",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 42,
+      "best_ope": "dr",
+      "best_ope_error": 0.00022475760301110537,
+      "true_value": -0.6407551586439687,
+      "estimates": {
+        "dm": 0.2154515307794467,
+        "sis": -0.15221157175261996,
+        "wis": 0.1991060726755853,
+        "tis": 0.001802660552509252,
+        "dr": -0.6409799162469798,
+        "fqe": -0.26766127170123155
+      }
+    },
+    {
+      "algorithm": "bc",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 42,
+      "best_ope": "dr",
+      "best_ope_error": 0.00292223735529612,
+      "true_value": 0.351821910585649,
+      "estimates": {
+        "dm": 0.24189234914164803,
+        "sis": 0.4156056778917278,
+        "wis": 0.3365812588748474,
+        "tis": 0.3896878812172552,
+        "dr": 0.34889967323035287,
+        "fqe": 0.33968754628814213
+      }
+    },
+    {
+      "algorithm": "cql",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 42,
+      "best_ope": "dr",
+      "best_ope_error": 0.016620619295003414,
+      "true_value": 0.36755697994009484,
+      "estimates": {
+        "dm": 0.24403790480827067,
+        "sis": -0.03637837846513786,
+        "wis": 0.4570071329305299,
+        "tis": 6.748609753346418e-20,
+        "dr": 0.3509363606450914,
+        "fqe": 0.40758605256987746
+      }
+    },
+    {
+      "algorithm": "fqe",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 42,
+      "best_ope": "dr",
+      "best_ope_error": 0.0055008204534318095,
+      "true_value": 0.4067152733871492,
+      "estimates": {
+        "dm": 0.24403790480827067,
+        "sis": -0.0468722091256875,
+        "wis": 0.4451711446253489,
+        "tis": 2.3968782326149655e-19,
+        "dr": 0.4012144529337174,
+        "fqe": 0.4326454733682343
+      }
+    },
+    {
+      "algorithm": "optimal",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 123,
+      "best_ope": "fqe",
+      "best_ope_error": 0.0025138343138462194,
+      "true_value": 0.4094122230366963,
+      "estimates": {
+        "dm": 0.2440379048082706,
+        "sis": 0.4404060717614468,
+        "wis": 0.40319598026604553,
+        "tis": 0.43137013167640875,
+        "dr": 0.40603844452965626,
+        "fqe": 0.40689838872285006
+      }
+    },
+    {
+      "algorithm": "random",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 123,
+      "best_ope": "dr",
+      "best_ope_error": 0.004577747616461014,
+      "true_value": -0.6407551586439687,
+      "estimates": {
+        "dm": 0.2154515307794467,
+        "sis": -0.10973199026235933,
+        "wis": 0.23802672800440036,
+        "tis": 0.0005205109313220417,
+        "dr": -0.6453329062604297,
+        "fqe": -0.28624297824800016
+      }
+    },
+    {
+      "algorithm": "bc",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 123,
+      "best_ope": "dr",
+      "best_ope_error": 0.004861016734326373,
+      "true_value": 0.3581957170279401,
+      "estimates": {
+        "dm": 0.24186840320786882,
+        "sis": 0.4704420101339258,
+        "wis": 0.32929436736884365,
+        "tis": 0.4213016832295144,
+        "dr": 0.35333470029361375,
+        "fqe": 0.3434072561606927
+      }
+    },
+    {
+      "algorithm": "cql",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 123,
+      "best_ope": "dr",
+      "best_ope_error": 0.002615519294362545,
+      "true_value": -0.20207909197271812,
+      "estimates": {
+        "dm": 0.24403790480827067,
+        "sis": -0.07191388492885475,
+        "wis": 0.38384180849775223,
+        "tis": 3.7730841684809426e-20,
+        "dr": -0.20469461126708066,
+        "fqe": 0.3528134368656292
+      }
+    },
+    {
+      "algorithm": "fqe",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 123,
+      "best_ope": "dr",
+      "best_ope_error": 0.0005143277347961217,
+      "true_value": -0.15793976598903248,
+      "estimates": {
+        "dm": 0.2440379048082706,
+        "sis": -0.060251278395940744,
+        "wis": 0.43093497788892887,
+        "tis": 7.383482597796219e-11,
+        "dr": -0.15742543825423636,
+        "fqe": 0.4136244483900426
+      }
+    },
+    {
+      "algorithm": "optimal",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 7,
+      "best_ope": "dr",
+      "best_ope_error": 0.00018034384567661155,
+      "true_value": 0.4094122230366963,
+      "estimates": {
+        "dm": 0.2440379048082706,
+        "sis": 0.43085911116719366,
+        "wis": 0.4083742233700321,
+        "tis": 0.4221230447163366,
+        "dr": 0.40923187919101967,
+        "fqe": 0.40741335425715164
+      }
+    },
+    {
+      "algorithm": "random",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 7,
+      "best_ope": "dr",
+      "best_ope_error": 0.0010929387589577733,
+      "true_value": -0.6407551586439687,
+      "estimates": {
+        "dm": 0.2154515307794467,
+        "sis": -0.147226452278849,
+        "wis": 0.29440053043333964,
+        "tis": 0.000623489505528529,
+        "dr": -0.6396622198850109,
+        "fqe": -0.27940336492302353
+      }
+    },
+    {
+      "algorithm": "bc",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 7,
+      "best_ope": "dr",
+      "best_ope_error": 0.002793426825676737,
+      "true_value": 0.35351220665842376,
+      "estimates": {
+        "dm": 0.24158939311415292,
+        "sis": 0.4600440267922765,
+        "wis": 0.3244988946493429,
+        "tis": 0.4105289576425505,
+        "dr": 0.3563056334841005,
+        "fqe": 0.3451731281370593
+      }
+    },
+    {
+      "algorithm": "cql",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 7,
+      "best_ope": "dr",
+      "best_ope_error": 0.007189892046623236,
+      "true_value": 0.38952988038259684,
+      "estimates": {
+        "dm": 0.24403790480827067,
+        "sis": 0.8843713723268766,
+        "wis": 0.4570071329687498,
+        "tis": 0.7295794321926853,
+        "dr": 0.3967197724292201,
+        "fqe": 0.4087046250873281
+      }
+    },
+    {
+      "algorithm": "fqe",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 7,
+      "best_ope": "dr",
+      "best_ope_error": 4.8958518644171e-06,
+      "true_value": 0.29421749782119844,
+      "estimates": {
+        "dm": 0.2440379048082706,
+        "sis": -0.07403827484081693,
+        "wis": 0.4045490459933644,
+        "tis": 1.2463944899540365e-10,
+        "dr": 0.294212601969334,
+        "fqe": 0.427408851864057
+      }
+    },
+    {
+      "algorithm": "optimal",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 42,
+      "best_ope": "dr",
+      "best_ope_error": 0.0010849830880401146,
+      "true_value": 0.4094122230366963,
+      "estimates": {
+        "dm": 0.2440379048082706,
+        "sis": 0.3713879164489962,
+        "wis": 0.4453140429296274,
+        "tis": 0.41121099041967796,
+        "dr": 0.4104972061247364,
+        "fqe": 0.4167940636894871
+      }
+    },
+    {
+      "algorithm": "random",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 42,
+      "best_ope": "fqe",
+      "best_ope_error": 0.0040678366875485095,
+      "true_value": -0.6407551586439687,
+      "estimates": {
+        "dm": 0.2154515307794467,
+        "sis": -0.338944702575495,
+        "wis": -0.04246349812654772,
+        "tis": -0.00401146968654159,
+        "dr": -0.653627623601102,
+        "fqe": -0.6448229953315172
+      }
+    },
+    {
+      "algorithm": "bc",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 42,
+      "best_ope": "fqe",
+      "best_ope_error": 0.006831995862495083,
+      "true_value": 0.06813292874116472,
+      "estimates": {
+        "dm": 0.23043409980420004,
+        "sis": 0.13178078935937684,
+        "wis": 0.03903697988860634,
+        "tis": 0.04947079610000166,
+        "dr": 0.0770183522315488,
+        "fqe": 0.0749649246036598
+      }
+    },
+    {
+      "algorithm": "cql",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 42,
+      "best_ope": "fqe",
+      "best_ope_error": 0.009213526459712462,
+      "true_value": 0.39725351573504253,
+      "estimates": {
+        "dm": 0.2440379048082706,
+        "sis": -0.3594082492239214,
+        "wis": 0.3363344482037498,
+        "tis": 7.335582391481663e-09,
+        "dr": 0.4185937183481079,
+        "fqe": 0.406467042194755
+      }
+    },
+    {
+      "algorithm": "fqe",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 42,
+      "best_ope": "fqe",
+      "best_ope_error": 0.02056312331551552,
+      "true_value": 0.4034073863450747,
+      "estimates": {
+        "dm": 0.2440379048082706,
+        "sis": -0.2543860613764718,
+        "wis": 0.3433299656138394,
+        "tis": 1.9872417528232455e-18,
+        "dr": 0.4242992408567689,
+        "fqe": 0.42397050966059024
+      }
+    },
+    {
+      "algorithm": "optimal",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 123,
+      "best_ope": "wis",
+      "best_ope_error": 0.00025547358874095094,
+      "true_value": 0.4094122230366963,
+      "estimates": {
+        "dm": 0.2440379048082706,
+        "sis": 0.4935750818346422,
+        "wis": 0.4091567494479553,
+        "tis": 0.47271769849578876,
+        "dr": 0.39482145806731916,
+        "fqe": 0.41187158513983296
+      }
+    },
+    {
+      "algorithm": "random",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 123,
+      "best_ope": "fqe",
+      "best_ope_error": 0.0007661484941975383,
+      "true_value": -0.6407551586439687,
+      "estimates": {
+        "dm": 0.2154515307794467,
+        "sis": -0.9038342623202547,
+        "wis": -0.11539509310403644,
+        "tis": -0.017424287886686846,
+        "dr": -0.6388610335603977,
+        "fqe": -0.6415213071381662
+      }
+    },
+    {
+      "algorithm": "bc",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 123,
+      "best_ope": "dr",
+      "best_ope_error": 0.001413052173305604,
+      "true_value": 0.06861026622819301,
+      "estimates": {
+        "dm": 0.23025824547102317,
+        "sis": 0.10985851992236545,
+        "wis": 0.03582336247357808,
+        "tis": 0.04263328345756641,
+        "dr": 0.0671972140548874,
+        "fqe": 0.07028301419869429
+      }
+    },
+    {
+      "algorithm": "cql",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 123,
+      "best_ope": "dr",
+      "best_ope_error": 0.004292096047242011,
+      "true_value": 0.40054907221460045,
+      "estimates": {
+        "dm": 0.24403790480827067,
+        "sis": -0.08063999273036641,
+        "wis": 0.45700713228656986,
+        "tis": 5.3671151761371385e-09,
+        "dr": 0.40484116826184247,
+        "fqe": 0.4075873101097053
+      }
+    },
+    {
+      "algorithm": "fqe",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 123,
+      "best_ope": "fqe",
+      "best_ope_error": 0.007391978579445402,
+      "true_value": 0.4064742961281762,
+      "estimates": {
+        "dm": 0.2440379048082706,
+        "sis": 0.20012772329744505,
+        "wis": 0.44377547864514993,
+        "tis": 0.3621402231849349,
+        "dr": 0.3927942296015267,
+        "fqe": 0.4138662747076216
+      }
+    },
+    {
+      "algorithm": "optimal",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 7,
+      "best_ope": "fqe",
+      "best_ope_error": 0.001414497786921709,
+      "true_value": 0.4094122230366963,
+      "estimates": {
+        "dm": 0.2440379048082706,
+        "sis": -0.022119557170722556,
+        "wis": 0.4183299894344289,
+        "tis": 0.11678638682267616,
+        "dr": 0.4218351503290491,
+        "fqe": 0.410826720823618
+      }
+    },
+    {
+      "algorithm": "random",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 7,
+      "best_ope": "dr",
+      "best_ope_error": 0.006080450598501819,
+      "true_value": -0.6407551586439687,
+      "estimates": {
+        "dm": 0.2154515307794467,
+        "sis": -0.3463917709608558,
+        "wis": 0.014890358972853058,
+        "tis": 0.0008956240101498244,
+        "dr": -0.6346747080454669,
+        "fqe": -0.5854711330303866
+      }
+    },
+    {
+      "algorithm": "bc",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 7,
+      "best_ope": "fqe",
+      "best_ope_error": 0.005113575335688146,
+      "true_value": 0.05499656295086572,
+      "estimates": {
+        "dm": 0.22919731914224287,
+        "sis": 0.10956486324044427,
+        "wis": 0.020721861096435985,
+        "tis": 0.026318884037313466,
+        "dr": 0.06082694326557542,
+        "fqe": 0.060110138286553864
+      }
+    },
+    {
+      "algorithm": "cql",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 7,
+      "best_ope": "dr",
+      "best_ope_error": 0.009931385661733405,
+      "true_value": 0.4000698082140058,
+      "estimates": {
+        "dm": 0.24403790480827067,
+        "sis": -0.09921766421095912,
+        "wis": 0.45700712708595664,
+        "tis": 1.5334615324550867e-10,
+        "dr": 0.4100011938757392,
+        "fqe": 0.41431906717917905
+      }
+    },
+    {
+      "algorithm": "fqe",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 7,
+      "best_ope": "dr",
+      "best_ope_error": 0.005254351048816497,
+      "true_value": 0.4037060577609733,
+      "estimates": {
+        "dm": 0.24403790480827067,
+        "sis": -0.0670644454072698,
+        "wis": 0.3911948027005091,
+        "tis": 3.94117740756481e-18,
+        "dr": 0.4089604088097898,
+        "fqe": 0.4180330700262768
+      }
+    },
+    {
+      "algorithm": "optimal",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 42,
+      "best_ope": "fqe",
+      "best_ope_error": 0.007885178235434831,
+      "true_value": 0.28137777369950673,
+      "estimates": {
+        "dm": 0.10063342778540108,
+        "sis": 0.2394874530588443,
+        "wis": 0.3539450002473862,
+        "tis": 0.29544782750097726,
+        "dr": 0.29639341994044305,
+        "fqe": 0.28926295193494156
+      }
+    },
+    {
+      "algorithm": "random",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 42,
+      "best_ope": "fqe",
+      "best_ope_error": 0.015311262405718007,
+      "true_value": -0.6407551586439687,
+      "estimates": {
+        "dm": 0.07962565039620483,
+        "sis": -0.20188570147903348,
+        "wis": 0.23186266518683457,
+        "tis": 0.002412369269225179,
+        "dr": -0.6581260427230898,
+        "fqe": -0.6560664210496867
+      }
+    },
+    {
+      "algorithm": "bc",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 42,
+      "best_ope": "tis",
+      "best_ope_error": 0.0034326347598619827,
+      "true_value": 0.09003095784855646,
+      "estimates": {
+        "dm": 0.09495380067366398,
+        "sis": 0.13017067867628396,
+        "wis": 0.08218955687370788,
+        "tis": 0.09346359260841844,
+        "dr": 0.10069113038398717,
+        "fqe": 0.09873908165386734
+      }
+    },
+    {
+      "algorithm": "cql",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 42,
+      "best_ope": "dr",
+      "best_ope_error": 0.02390762541252167,
+      "true_value": 0.27273617287934276,
+      "estimates": {
+        "dm": 0.10063342778540117,
+        "sis": -0.11633712893578264,
+        "wis": 0.14919069958917225,
+        "tis": 1.3774265368471768e-18,
+        "dr": 0.2488285474668211,
+        "fqe": 0.29670867455261585
+      }
+    },
+    {
+      "algorithm": "fqe",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 42,
+      "best_ope": "tis",
+      "best_ope_error": 0.017190918257740273,
+      "true_value": 0.28007760204418086,
+      "estimates": {
+        "dm": 0.10063342778540108,
+        "sis": 0.8832802402291513,
+        "wis": 0.1000342834654617,
+        "tis": 0.2628866837864406,
+        "dr": 0.2003342087938934,
+        "fqe": 0.3032240582782068
+      }
+    },
+    {
+      "algorithm": "optimal",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 123,
+      "best_ope": "fqe",
+      "best_ope_error": 0.008182134615795478,
+      "true_value": 0.28137777369950673,
+      "estimates": {
+        "dm": 0.10063342778540108,
+        "sis": 0.12410941306778916,
+        "wis": 0.30963893652743174,
+        "tis": 0.23562381031930052,
+        "dr": 0.22586785011529747,
+        "fqe": 0.27319563908371125
+      }
+    },
+    {
+      "algorithm": "random",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 123,
+      "best_ope": "dr",
+      "best_ope_error": 0.005302581236491188,
+      "true_value": -0.6407551586439687,
+      "estimates": {
+        "dm": 0.07962565039620483,
+        "sis": -0.20984666815967523,
+        "wis": 0.13447917523095548,
+        "tis": 0.0011526861333918175,
+        "dr": -0.6460577398804599,
+        "fqe": -0.6285994792225248
+      }
+    },
+    {
+      "algorithm": "bc",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 123,
+      "best_ope": "dr",
+      "best_ope_error": 0.002823530790556125,
+      "true_value": 0.0859733612381025,
+      "estimates": {
+        "dm": 0.09394753548398183,
+        "sis": 0.1136853272913752,
+        "wis": 0.05696671303950611,
+        "tis": 0.06689704036728919,
+        "dr": 0.08314983044754637,
+        "fqe": 0.08076010726480488
+      }
+    },
+    {
+      "algorithm": "cql",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 123,
+      "best_ope": "dr",
+      "best_ope_error": 0.0009463610806271228,
+      "true_value": 0.2584326048969017,
+      "estimates": {
+        "dm": 0.10063342778540117,
+        "sis": -0.13054108635895761,
+        "wis": 0.3708545428437412,
+        "tis": 1.6096304792606277e-18,
+        "dr": 0.25748624381627455,
+        "fqe": 0.29773676255034753
+      }
+    },
+    {
+      "algorithm": "fqe",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 123,
+      "best_ope": "dr",
+      "best_ope_error": 0.01811404255736951,
+      "true_value": 0.26340008363801387,
+      "estimates": {
+        "dm": 0.10063342778540117,
+        "sis": -0.11875724388117942,
+        "wis": 0.4570071313632137,
+        "tis": 1.4061171635535573e-10,
+        "dr": 0.24528604108064436,
+        "fqe": 0.2988023901529643
+      }
+    },
+    {
+      "algorithm": "optimal",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 7,
+      "best_ope": "fqe",
+      "best_ope_error": 0.004887053685459775,
+      "true_value": 0.28137777369950673,
+      "estimates": {
+        "dm": 0.10063342778540108,
+        "sis": 0.31007163631013557,
+        "wis": 0.3396267958496253,
+        "tis": 0.33253213571839635,
+        "dr": 0.3046776598439898,
+        "fqe": 0.27649072001404695
+      }
+    },
+    {
+      "algorithm": "random",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 7,
+      "best_ope": "dr",
+      "best_ope_error": 0.016477153354236385,
+      "true_value": -0.6407551586439687,
+      "estimates": {
+        "dm": 0.07962565039620483,
+        "sis": -0.3938046000059981,
+        "wis": 0.3309445255994096,
+        "tis": 0.008109065932084672,
+        "dr": -0.6242780052897323,
+        "fqe": -0.5642105983719542
+      }
+    },
+    {
+      "algorithm": "bc",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 7,
+      "best_ope": "dm",
+      "best_ope_error": 0.000381653015988373,
+      "true_value": 0.09320170710320785,
+      "estimates": {
+        "dm": 0.09358336011919623,
+        "sis": 0.14884515525410444,
+        "wis": 0.060415726732443685,
+        "tis": 0.07500203305493375,
+        "dr": 0.09851202163415104,
+        "fqe": 0.09739973050203764
+      }
+    },
+    {
+      "algorithm": "cql",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 7,
+      "best_ope": "wis",
+      "best_ope_error": 0.017320842121798186,
+      "true_value": 0.2480246068068453,
+      "estimates": {
+        "dm": 0.10063342778540108,
+        "sis": -0.12539142991899188,
+        "wis": 0.2653454489286435,
+        "tis": 1.8111856113549403e-10,
+        "dr": 0.2817004251155285,
+        "fqe": 0.29252113573018523
+      }
+    },
+    {
+      "algorithm": "fqe",
+      "backend": "numpy",
+      "target": "GridWorld",
+      "seed": 7,
+      "best_ope": "dr",
+      "best_ope_error": 0.002521457863286003,
+      "true_value": 0.26380508424721283,
+      "estimates": {
+        "dm": 0.10063342778540108,
+        "sis": -0.10445880534729574,
+        "wis": 0.34515445939245915,
+        "tis": 8.1284219387293255e-19,
+        "dr": 0.26632654211049883,
+        "fqe": 0.3032815893204944
+      }
+    }
+  ]
+}
